@@ -77,12 +77,12 @@ public class PublicTransport {
         return speed;
     }
 
-    public void setSpeed(short speed) {
+    public void addSpeed(short speed) {
         if (0 <= this.speed + speed && this.speed + speed <= MAX_SPEED) {
 
             if (0 < this.fuelTank && this.fuelTank < 10) {
                 System.out.println("주유량이 10미만 입니다. 주유를 해주세요.");
-            }else if (this.fuelTank < 0) {
+            } else if (this.fuelTank < 0) {
                 System.out.println("주유량이 0이라 속도를 올릴 수 없습니다.");
                 return;
             }
@@ -93,11 +93,15 @@ public class PublicTransport {
         }
     }
 
+    public void setSpeed(short speed) {
+        this.speed = speed;
+    }
+
     public short getFuelTank() {
         return fuelTank;
     }
 
-    public short setFuelTank(short fuelTank) {
+    public short addFuelTank(short fuelTank) {
         if (0 <= this.fuelTank + fuelTank && this.fuelTank + fuelTank <= MAX_FUEL_TANK) {
             this.fuelTank += fuelTank;
         } else if (MAX_FUEL_TANK < this.fuelTank + fuelTank) {
@@ -112,12 +116,15 @@ public class PublicTransport {
         return this.fuelTank;
     }
 
+    public void setFuelTank(short fuelTank) {
+        this.fuelTank = fuelTank;
+    }
 
     public byte getPassenger() {
         return passenger;
     }
 
-    public  void  addPassenger(byte passenger){
+    public void addPassenger(byte passenger) {
         if (0 <= this.passenger + passenger && this.passenger + passenger <= MAX_PASSENGER) {
             this.passenger += passenger;
             if (0 < passenger)
@@ -128,6 +135,7 @@ public class PublicTransport {
             System.out.println("최대 승객 수 초과");
         }
     }
+
     public void setPassenger(byte passenger) {
         this.passenger = passenger;
     }

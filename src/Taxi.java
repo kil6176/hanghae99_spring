@@ -58,7 +58,7 @@ public class Taxi extends PublicTransport implements PublicTransportService {
 
     @Override
     public void changeFuelTank(short count) {
-        if (setFuelTank(count) < 10) {
+        if (addFuelTank(count) < 10) {
             setState(STATE_DRIVE_FAIL);
         }
     }

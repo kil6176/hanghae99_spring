@@ -47,7 +47,7 @@ public class Bus extends PublicTransport implements PublicTransportService {
 
     @Override
     public void changeFuelTank(short count) {
-        if (setFuelTank(count) < 10) {
+        if (addFuelTank(count) < 10) {
             System.out.println("주유량이 부족하여 강제로 차고지로 이동합니다.");
             setState(STATE_GARAGE);
         }

@@ -6,5 +6,6 @@ public interface PublicTransportService {
     public void changeFuelTank(short count);
 
     public void calculateCost();
+    
     public void printInfomation();
 }
