@@ -1,21 +1,21 @@
 import java.lang.invoke.SwitchPoint;
 
 public class Bus extends PublicTransport implements PublicTransportationService {
-    final String STATE_DRIVE = "운행";
-    final String STATE_GARAGE = "차고지행";
+    final String STATE_DRIVE_START = "운행";
     final String STATE_DRIVE_END = "운행종료";
+    final String STATE_GARAGE = "차고지행";
 
 
     public Bus(short MAX_FUEL_TANK, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
         super(MAX_FUEL_TANK, MAX_SPEED, MAX_PASSENGER, cost);
-        setState(STATE_DRIVE);
+        setState(STATE_DRIVE_START);
         setNumber((short) (getNumber() + 1));
         System.out.printf("%d버스가 생성되었습니다.\n", getNumber());
     }
 
     @Override
     public void changePassenger(byte count) {
-        if (getState().equals(STATE_DRIVE)) {
+        if (getState().equals(STATE_DRIVE_START)) {
             setPassenger(count);
             calculateCost();
             printInfomation();
@@ -26,11 +26,11 @@ public class Bus extends PublicTransport implements PublicTransportationService 
     @Override
     public void changeState(String state) {
         switch (state) {
-            case STATE_DRIVE:
+            case STATE_DRIVE_START:
                 if (getFuelTank() < 10) {
                     System.out.println("주유량이 부족하여 운행이 불가합니다.");
                 } else {
-                    setState(STATE_DRIVE);
+                    setState(STATE_DRIVE_START);
                 }
                 break;
 
