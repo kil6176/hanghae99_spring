@@ -77,7 +77,7 @@ public class Taxi extends PublicTransport implements PublicTransportService {
     }
 
 
-    public void setDestination(String destination, int distance) {
+    public void setDistanceDestination(int distance, String destination) {
         if (!destination.equals("")) {
             if (0 < distance) {
                 this.distance = distance;
@@ -89,7 +89,6 @@ public class Taxi extends PublicTransport implements PublicTransportService {
         } else {
             System.out.println("목적지를 제대로 입력해주세요.");
         }
-        printDestination();
     }
 
     public void initializeTaxi() {

@@ -27,7 +27,7 @@ public class Main {
 //        taxi1.changePassenger((byte) 6);
 //        taxi1.changeState("운행");
 //        taxi1.printState();
-//        taxi1.setDestination("구로디지털단지역", 15);
+//        taxi1.setDistanceDestination("구로디지털단지역", 15);
 //        taxi1.changeState("운행종료");
 //        taxi1.changeFuelTank((short) -80);
 //        taxi1.printState();

@@ -79,7 +79,6 @@ public class PublicTransport {
 
     public void addSpeed(short speed) {
         if (0 <= this.speed + speed && this.speed + speed <= MAX_SPEED) {
-
             if (0 < this.fuel && this.fuel < 10) {
                 System.out.println("주유량이 10미만 입니다. 주유를 해주세요.");
             } else if (this.fuel < 0) {
