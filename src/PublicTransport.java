@@ -81,7 +81,14 @@ public class PublicTransport {
 
     public void setSpeed(short speed) {
         if (0 <= this.speed + speed && this.speed + speed <= MAX_SPEED) {
-            this.speed = speed;
+
+            if (0 < this.fuelTank && this.fuelTank < 10) {
+                System.out.println("주유량이 10미만 입니다. 주유를 해주세요.");
+            }else if (this.fuelTank < 0) {
+                System.out.println("주유량이 0이라 속도를 올릴 수 없습니다.");
+                return;
+            }
+            this.speed += speed;
         } else if (this.speed + speed < 0) {
             System.out.println("속도가 최대치를 넘깁니다. 다시 입력 해주세요.");
             this.speed = 0;
@@ -110,7 +117,7 @@ public class PublicTransport {
         }
         System.out.println("주유량 : " + this.fuelTank);
         if (this.fuelTank < 10) {
-            System.out.println("주유가 필요합니다.");
+            System.out.println("주유가 필요합니다. 주유량을 확인해주세요");
         }
         return this.fuelTank;
     }
