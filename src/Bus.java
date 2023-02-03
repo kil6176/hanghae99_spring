@@ -5,8 +5,8 @@ public class Bus extends PublicTransport implements PublicTransportService {
 
     private static short number;
 
-    public Bus(short MAX_FUEL_TANK, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
-        super(MAX_FUEL_TANK, MAX_SPEED, MAX_PASSENGER, cost);
+    public Bus(short MAX_FUEL, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
+        super(MAX_FUEL, MAX_SPEED, MAX_PASSENGER, cost);
         setState(STATE_DRIVE_START);
         setNumber((short) (getNumber() + 1));
         System.out.printf("%d버스가 생성되었습니다.\n", getNumber());
@@ -26,13 +26,12 @@ public class Bus extends PublicTransport implements PublicTransportService {
     public void changeState(String state) {
         switch (state) {
             case STATE_DRIVE_START:
-                if (getFuelTank() < 10) {
+                if (getFuel() < 10) {
                     System.out.println("주유량이 부족하여 운행이 불가합니다.");
                 } else {
                     setState(STATE_DRIVE_START);
                 }
                 break;
-
             case STATE_GARAGE:
                 setState(STATE_GARAGE);
                 break;
@@ -46,8 +45,8 @@ public class Bus extends PublicTransport implements PublicTransportService {
     }
 
     @Override
-    public void changeFuelTank(short count) {
-        if (addFuelTank(count) < 10) {
+    public void changeFuel(short count) {
+        if (addFuel(count) < 10) {
             System.out.println("주유량이 부족하여 강제로 차고지로 이동합니다.");
             setState(STATE_GARAGE);
         }

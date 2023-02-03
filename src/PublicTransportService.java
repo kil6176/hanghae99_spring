@@ -3,9 +3,9 @@ public interface PublicTransportService {
 
     public void changeState(String state);
 
-    public void changeFuelTank(short count);
+    public void changeFuel(short count);
 
     public void calculateCost();
-    
+
     public void printInfomation();
 }

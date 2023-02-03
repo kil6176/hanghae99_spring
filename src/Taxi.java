@@ -9,8 +9,8 @@ public class Taxi extends PublicTransport implements PublicTransportService {
     int distance = 0;
     int distanceCost = 500;
 
-    public Taxi(short MAX_FUEL_TANK, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
-        super(MAX_FUEL_TANK, MAX_SPEED, MAX_PASSENGER, cost);
+    public Taxi(short MAX_FUEL, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
+        super(MAX_FUEL, MAX_SPEED, MAX_PASSENGER, cost);
         setState(STATE_DRIVE_WAIT);
         setNumber((short) (getNumber() + 1));
         System.out.printf("%d택시가 생성되었습니다.\n", getNumber());
@@ -29,7 +29,7 @@ public class Taxi extends PublicTransport implements PublicTransportService {
     public void changeState(String state) {
         switch (state) {
             case STATE_DRIVE_START:
-                if (getFuelTank() < 10) {
+                if (getFuel() < 10) {
                     System.out.println("주유량이 부족하여 운행이 불가합니다.");
                 } else if (getPassenger() <= 0) {
                     System.out.println("승객이 없습니다.");
@@ -57,8 +57,8 @@ public class Taxi extends PublicTransport implements PublicTransportService {
     }
 
     @Override
-    public void changeFuelTank(short count) {
-        if (addFuelTank(count) < 10) {
+    public void changeFuel(short count) {
+        if (addFuel(count) < 10) {
             setState(STATE_DRIVE_FAIL);
         }
     }

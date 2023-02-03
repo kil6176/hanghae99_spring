@@ -1,11 +1,11 @@
 public class PublicTransport {
-    private final short MAX_FUEL_TANK;
+    private final short MAX_FUEL;
     private final byte MAX_PASSENGER;
     private final short MAX_SPEED;
 
 
     private short speed = 0;
-    private short fuelTank;
+    private short fuel;
     private byte passenger = 0;
     private String state = "";
     private int cost = 0;
@@ -14,8 +14,8 @@ public class PublicTransport {
 
 
     public PublicTransport(short MAX_FUEL_TANK, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
-        this.MAX_FUEL_TANK = MAX_FUEL_TANK;
-        this.fuelTank = MAX_FUEL_TANK;
+        this.MAX_FUEL = MAX_FUEL_TANK;
+        this.fuel = MAX_FUEL_TANK;
         this.MAX_SPEED = MAX_SPEED;
         this.MAX_PASSENGER = MAX_PASSENGER;
         this.cost = cost;
@@ -49,8 +49,8 @@ public class PublicTransport {
         this.totalCost = totalCost;
     }
 
-    public short getMAX_FUEL_TANK() {
-        return MAX_FUEL_TANK;
+    public short getMAX_FUEL() {
+        return MAX_FUEL;
     }
 
     public byte getMAX_PASSENGER() {
@@ -80,9 +80,9 @@ public class PublicTransport {
     public void addSpeed(short speed) {
         if (0 <= this.speed + speed && this.speed + speed <= MAX_SPEED) {
 
-            if (0 < this.fuelTank && this.fuelTank < 10) {
+            if (0 < this.fuel && this.fuel < 10) {
                 System.out.println("주유량이 10미만 입니다. 주유를 해주세요.");
-            } else if (this.fuelTank < 0) {
+            } else if (this.fuel < 0) {
                 System.out.println("주유량이 0이라 속도를 올릴 수 없습니다.");
                 return;
             }
@@ -97,27 +97,27 @@ public class PublicTransport {
         this.speed = speed;
     }
 
-    public short getFuelTank() {
-        return fuelTank;
+    public short getFuel() {
+        return fuel;
     }
 
-    public short addFuelTank(short fuelTank) {
-        if (0 <= this.fuelTank + fuelTank && this.fuelTank + fuelTank <= MAX_FUEL_TANK) {
-            this.fuelTank += fuelTank;
-        } else if (MAX_FUEL_TANK < this.fuelTank + fuelTank) {
-            this.fuelTank += MAX_FUEL_TANK;
-        } else if (this.fuelTank + fuelTank < 0) {
-            this.fuelTank = 0;
+    public short addFuel(short fuelTank) {
+        if (0 <= this.fuel + fuelTank && this.fuel + fuelTank <= MAX_FUEL) {
+            this.fuel += fuelTank;
+        } else if (MAX_FUEL < this.fuel + fuelTank) {
+            this.fuel += MAX_FUEL;
+        } else if (this.fuel + fuelTank < 0) {
+            this.fuel = 0;
         }
-        System.out.println("주유량 : " + this.fuelTank);
-        if (this.fuelTank < 10) {
+        System.out.println("주유량 : " + this.fuel);
+        if (this.fuel < 10) {
             System.out.println("주유가 필요합니다. 주유량을 확인해주세요");
         }
-        return this.fuelTank;
+        return this.fuel;
     }
 
-    public void setFuelTank(short fuelTank) {
-        this.fuelTank = fuelTank;
+    public void setFuel(short fuel) {
+        this.fuel = fuel;
     }
 
     public byte getPassenger() {
