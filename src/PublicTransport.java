@@ -105,7 +105,7 @@ public class PublicTransport {
         if (0 <= this.fuelTank + fuelTank && this.fuelTank + fuelTank <= MAX_FUEL_TANK) {
             this.fuelTank += fuelTank;
         } else if (MAX_FUEL_TANK < this.fuelTank + fuelTank) {
-
+            this.fuelTank += MAX_FUEL_TANK;
         } else if (this.fuelTank + fuelTank < 0) {
             this.fuelTank = 0;
         }
