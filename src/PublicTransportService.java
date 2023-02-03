@@ -1,4 +1,4 @@
-public interface PublicTransportationService {
+public interface PublicTransportService {
     public void changePassenger(byte count);
 
     public void changeState(String state);

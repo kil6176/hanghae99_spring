@@ -4,8 +4,6 @@ public class PublicTransport {
     private final short MAX_SPEED;
 
 
-    private static short number;
-
     private short speed = 0;
     private short fuelTank;
     private byte passenger = 0;
@@ -95,14 +93,6 @@ public class PublicTransport {
         }
     }
 
-    public short getNumber() {
-        return number;
-    }
-
-    public void setNumber(short number) {
-        this.number = number;
-    }
-
     public short getFuelTank() {
         return fuelTank;
     }
@@ -127,7 +117,7 @@ public class PublicTransport {
         return passenger;
     }
 
-    public void setPassenger(byte passenger) {
+    public  void  addPassenger(byte passenger){
         if (0 <= this.passenger + passenger && this.passenger + passenger <= MAX_PASSENGER) {
             this.passenger += passenger;
             if (0 < passenger)
@@ -137,5 +127,8 @@ public class PublicTransport {
         } else {
             System.out.println("최대 승객 수 초과");
         }
+    }
+    public void setPassenger(byte passenger) {
+        this.passenger = passenger;
     }
 }

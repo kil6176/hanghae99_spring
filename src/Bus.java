@@ -1,10 +1,9 @@
-import java.lang.invoke.SwitchPoint;
-
-public class Bus extends PublicTransport implements PublicTransportationService {
+public class Bus extends PublicTransport implements PublicTransportService {
     final String STATE_DRIVE_START = "운행";
     final String STATE_DRIVE_END = "운행종료";
     final String STATE_GARAGE = "차고지행";
 
+    private static short number;
 
     public Bus(short MAX_FUEL_TANK, short MAX_SPEED, byte MAX_PASSENGER, int cost) {
         super(MAX_FUEL_TANK, MAX_SPEED, MAX_PASSENGER, cost);
@@ -16,7 +15,7 @@ public class Bus extends PublicTransport implements PublicTransportationService 
     @Override
     public void changePassenger(byte count) {
         if (getState().equals(STATE_DRIVE_START)) {
-            setPassenger(count);
+            addPassenger(count);
             calculateCost();
             printInfomation();
         } else
@@ -66,5 +65,13 @@ public class Bus extends PublicTransport implements PublicTransportationService 
         System.out.printf("잔여 승객 수 = %d\n", RemainingPassengerCount());
         System.out.printf("요금 확인 = %d\n", getCost());
         System.out.printf("속도 = %d\n", getSpeed());
+    }
+
+    public short getNumber() {
+        return number;
+    }
+
+    public void setNumber(short number) {
+        this.number = number;
     }
 }
